@@ -1,7 +1,6 @@
-import { uuid } from "uuidv4";
-import { getDataUser } from "../model/user.model";
+import { getUsers } from "../model/user.model";
 
-export const getUser = (userId: string) => {
-  const userdata = getDataUser(userId);
+export const getAllUsers = () => {
+  const userdata = getUsers();
   return userdata;
 };

@@ -6,10 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const user_controler_1 = require("../controller/user.controler");
 const router = express_1.default.Router();
-//gerenciar as rotas
-router.get("/user", (req, res) => {
-    const buff = (0, user_controler_1.getUser)("123");
-    const userData = JSON.parse(buff.toString());
-    res.send(userData);
+router.get("/", async (req, res) => {
+    const dataUser = await (0, user_controler_1.getAllUsers)();
+    res.send(dataUser);
 });
 exports.default = router;

@@ -1,8 +1,10 @@
-import fs from "fs";
+import mysql from "mysql2/promise";
 
-// o model vai enviar os dados pro controler e vai salvar no banco
-const dataPath = "model/data";
+const DATABASE_URL =
+  'mysql://06z69tx7hwb0vh9djoqb:pscale_pw_41vAFm6R4uCBX5YnMoFRLTLZXV6J0tWDb1TeTMCq0Vm@aws.connect.psdb.cloud/italents?ssl={"rejectUnauthorized":true}';
 
-export const getDataUser = (userId: string) => {
-  return fs.readFileSync(`${dataPath}/${userId}.json`);
+export const getUsers = async () => {
+  const connection = await mysql.createConnection(DATABASE_URL);
+  let [rows] = await connection.query("select * from user");
+  return rows;
 };
