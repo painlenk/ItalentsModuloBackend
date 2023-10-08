@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUserData = exports.deleteUserData = exports.getUserData = exports.getAllUsersData = void 0;
+exports.updateUserData = exports.createUserData = exports.deleteUserData = exports.getUserData = exports.getAllUsersData = void 0;
 const user_model_1 = require("../model/user.model");
 const userCreateFactory_1 = require("../utils/userCreateFactory");
 const getAllUsersData = () => {
@@ -24,3 +24,8 @@ const createUserData = (email, password) => {
     return userData;
 };
 exports.createUserData = createUserData;
+const updateUserData = (data) => {
+    const userData = (0, user_model_1.updateUser)(data);
+    return userData;
+};
+exports.updateUserData = updateUserData;

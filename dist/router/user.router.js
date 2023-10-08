@@ -18,12 +18,19 @@ router.get("/:id", async (req, res, Response) => {
 router.delete("/:id", async (req, res) => {
     const id = req.params.id;
     const dataUser = await (0, user_controler_1.deleteUserData)(id);
-    console.log("id -->", dataUser);
     res.send(dataUser);
 });
 router.post("/", async (req, res) => {
     const { email, password } = req.body;
     const dataUser = await (0, user_controler_1.createUserData)(email, password);
+    res.send(dataUser);
+});
+router.post("/update", async (req, res) => {
+    const { id, email, password } = req.body;
+    if (!id || !email || !password) {
+        res.status(400).send("campos de id, email e password requeridos");
+    }
+    const dataUser = await (0, user_controler_1.updateUserData)({ id, email, password });
     res.send(dataUser);
 });
 exports.default = router;
