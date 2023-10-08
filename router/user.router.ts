@@ -1,9 +1,33 @@
 import express, { Request, Response } from "express";
-import { getAllUsers } from "../controller/user.controler";
+import {
+  createUserData,
+  deleteUserData,
+  getAllUsersData,
+  getUserData,
+} from "../controller/user.controler";
 const router = express.Router();
 
 router.get("/", async (req: Request, res: Response) => {
-  const dataUser = await getAllUsers();
+  const dataUser = await getAllUsersData();
+  res.send(dataUser);
+});
+
+router.get("/:id", async (req: Request, res, Response) => {
+  const id = req.params.id;
+  const dataUser = await getUserData(id);
+  res.send(dataUser);
+});
+
+router.delete("/:id", async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const dataUser = await deleteUserData(id);
+  console.log("id -->", dataUser);
+  res.send(dataUser);
+});
+
+router.post("/", async (req: Request, res: Response) => {
+  const { email, password } = req.body;
+  const dataUser = await createUserData(email, password);
   res.send(dataUser);
 });
 

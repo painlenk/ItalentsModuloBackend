@@ -1,9 +1,0 @@
-{
-  "id": "123",
-  "name": "Jhon",
-  "lastName": "Doe",
-  "gender": "M",
-  "Age": 27,
-  "email": "jhonDoe@email.com",
-  "password": "123456"
-}
