@@ -1,10 +1,12 @@
 import express, { Router } from "express";
 import userRouter from "./router/user.router";
 import cors from "cors";
+import { connectToDatabase } from "./database/db";
 
 const port = 3000;
 
 const app = express();
+connectToDatabase();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

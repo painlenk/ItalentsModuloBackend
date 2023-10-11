@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@types/cors": "^2.8.14",
+    "@types/mongodb": "^4.0.7",
+    "@types/mongoose": "^5.11.97",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "mongoose": "6.6.5",
     "mysql2": "^3.6.1",
     "uuidv4": "^6.2.13"
   },

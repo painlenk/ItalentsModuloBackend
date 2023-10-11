@@ -43,7 +43,6 @@ const updateUser = async ({ id, email, password }) => {
     const rows = await connection.query(`
   UPDATE user SET email = '${email}', password = '${password}' where id = '${id}'`);
     connection.end();
-    console.log(rows);
     return {
         id,
         email,
