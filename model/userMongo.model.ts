@@ -1,4 +1,4 @@
-import mongoose, { Error } from "mongoose";
+import mongoose from "mongoose";
 
 import { Schema, InferSchemaType } from "mongoose";
 import { IUserData } from "../types/interfaces/user";
