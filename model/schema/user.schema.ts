@@ -2,11 +2,11 @@ import { Schema, InferSchemaType } from "mongoose";
 import { IUserData } from "../../types/interfaces/user";
 
 export const UserSchema = new Schema<IUserData>({
-  name: String,
-  age: Number,
-  email: String,
-  password: String,
-  isActive: Boolean,
+  name: { type: String, required: true },
+  age: { type: Number, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  isActive: { type: Boolean, required: true },
 });
 
 export type User = InferSchemaType<typeof UserSchema>;

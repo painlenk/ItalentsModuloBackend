@@ -1,33 +1,16 @@
 import mongoose, { Error } from "mongoose";
-import { UserSchema } from "./schema/user.schema";
+
+import { Schema, InferSchemaType } from "mongoose";
 import { IUserData } from "../types/interfaces/user";
 
-const UserDb = mongoose.model("user", UserSchema);
+export const UserSchema = new Schema<IUserData>({
+  name: { type: String, required: true },
+  age: { type: Number, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  isActive: { type: Boolean },
+});
 
-export const createUserDb = (data: IUserData) => {
-  const user = new UserDb(data)
-    .save()
-    .then(() => console.log("salvo no banco"))
-    .catch((error: Error) => console.log("error :", error));
-};
+export type User = InferSchemaType<typeof UserSchema>;
 
-export const getAllUsersDb = async () => {
-  const users = await UserDb.find();
-  return users;
-};
-
-export const getUserDb = async (id: string) => {
-  const user = await UserDb.findById(id);
-  return user;
-};
-
-export const deleteUserDb = async (id: string) => {
-  const user = await UserDb.deleteOne({ _id: id });
-
-  return user;
-};
-
-export const updateUserDb = async (id: string, data: IUserData) => {
-  const user = await UserDb.findByIdAndUpdate(id, data);
-  return user;
-};
+export const UserDb = mongoose.model("user", UserSchema);
