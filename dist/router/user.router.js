@@ -6,31 +6,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const user_controler_1 = require("../controller/user.controler");
 const router = express_1.default.Router();
-router.get("/", async (req, res) => {
-    const dataUser = await (0, user_controler_1.getAllUsersData)();
-    res.send(dataUser);
-});
 router.get("/:id", async (req, res, Response) => {
-    const id = req.params.id;
-    const dataUser = await (0, user_controler_1.getUserData)(id);
-    res.send(dataUser);
+    await (0, user_controler_1.getUserData)(req, res);
 });
 router.delete("/:id", async (req, res) => {
-    const id = req.params.id;
-    const dataUser = await (0, user_controler_1.deleteUserData)(id);
-    res.send(dataUser);
+    await (0, user_controler_1.deleteUserData)(req, res);
 });
-router.post("/", async (req, res) => {
-    const { email, password } = req.body;
-    const dataUser = await (0, user_controler_1.createUserData)(email, password);
-    res.send(dataUser);
+router.put("/update/:id", async (req, res) => {
+    await (0, user_controler_1.updateUserData)(req, res);
 });
-router.post("/update", async (req, res) => {
-    const { id, email, password } = req.body;
-    if (!id || !email || !password) {
-        res.status(400).send("campos de id, email e password requeridos");
-    }
-    const dataUser = await (0, user_controler_1.updateUserData)({ id, email, password });
-    res.send(dataUser);
+router.post("/create", async (req, res) => {
+    await (0, user_controler_1.createUserData)(req, res);
+});
+router.get("/", async (req, res) => {
+    await (0, user_controler_1.getAllUsersData)(req, res);
 });
 exports.default = router;
