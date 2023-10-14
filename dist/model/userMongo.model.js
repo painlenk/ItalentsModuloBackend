@@ -9,7 +9,7 @@ const mongoose_2 = require("mongoose");
 exports.UserSchema = new mongoose_2.Schema({
     name: { type: String, required: true },
     age: { type: Number, required: true },
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     isActive: { type: Boolean },
 });

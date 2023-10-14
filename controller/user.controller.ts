@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import {} from "../model/userMongo.model";
 import { IUserData } from "../types/interfaces/user";
 import { userCreateFactory } from "../utils/userCreateFactory";
 import mongoose from "mongoose";
