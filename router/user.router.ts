@@ -6,13 +6,17 @@ import {
   getUserData,
   updateUserData,
 } from "../controller/user.controller";
-import { loginUser } from "../controller/auth.controller";
+import { loginToken, loginUser } from "../controller/auth.controller";
 
 const router = express.Router();
 
 router.post("/login", async (req: Request, res: Response) => {
   // implementar toda de login
   await loginUser(req, res);
+});
+
+router.post("/token", async (req: Request, res: Response) => {
+  await loginToken(req, res);
 });
 
 router.put("/update/:id", async (req: Request, res: Response) => {

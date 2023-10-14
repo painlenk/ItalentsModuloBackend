@@ -11,6 +11,9 @@ router.post("/login", async (req, res) => {
     // implementar toda de login
     await (0, auth_controller_1.loginUser)(req, res);
 });
+router.post("/token", async (req, res) => {
+    await (0, auth_controller_1.loginToken)(req, res);
+});
 router.put("/update/:id", async (req, res) => {
     await (0, user_controller_1.updateUserData)(req, res);
 });
