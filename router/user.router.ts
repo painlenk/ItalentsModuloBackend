@@ -15,8 +15,8 @@ router.post("/login", async (req: Request, res: Response) => {
   await loginUser(req, res);
 });
 
-router.post("/token", async (req: Request, res: Response) => {
-  await loginToken(req, res);
+router.post("/token", (req: Request, res: Response) => {
+  loginToken(req, res);
 });
 
 router.put("/update/:id", async (req: Request, res: Response) => {

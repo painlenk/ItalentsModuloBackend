@@ -11,6 +11,6 @@ export const UserSchema = new Schema<IUserData>({
   isActive: { type: Boolean },
 });
 
-export type User = InferSchemaType<typeof UserSchema>;
+export type User = InferSchemaType<typeof UserSchema>; //cria um type de user do banco
 
 export const UserDb = mongoose.model("user", UserSchema);

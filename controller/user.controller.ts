@@ -9,6 +9,7 @@ import {
   getUserDb,
   updateUserDb,
 } from "../services/user.service";
+import { getUserEmailDb } from "../services/auth.service";
 
 export const getAllUsersData = async (req: Request, res: Response) => {
   try {
@@ -52,13 +53,13 @@ export const deleteUserData = async (req: Request, res: Response) => {
 
   try {
     const getUserToDelete = await getUserDb(id);
-    console.log("getUser", getUserToDelete);
 
     if (!getUserToDelete) {
       return res.status(404).send("erro ao deletar, usuário inexistente");
     }
 
     await deleteUserDb(id);
+
     return res.status(200).send(`usuário deletado ${getUserToDelete}`);
   } catch (error: any) {
     console.log("error:", error);
@@ -68,6 +69,7 @@ export const deleteUserData = async (req: Request, res: Response) => {
 
 export const createUserData = async (req: Request, res: Response) => {
   const { name, age, email, password } = req.body;
+
   if (!name || !age || !email || !password) {
     return res.status(404).send("todos os campos são obrigatórios");
   }
@@ -79,13 +81,20 @@ export const createUserData = async (req: Request, res: Response) => {
     password,
   };
 
-  const data = userCreateFactory(userDataToCreate); // cria um bojeto com base nos parametros
+  const emailAlreadyExists = await getUserEmailDb(email);
+  if (emailAlreadyExists) {
+    return res.status(404).send("usuário já cadstrado");
+  }
+
+  const data = userCreateFactory(userDataToCreate); // cria um objeto com base nos parametros
 
   try {
     await createUserDb(data);
+
     return res.status(200).send(data);
   } catch (error: any) {
     console.log("error", error);
+
     return res.status(500).send("erro no servidor, tente novamente mais tarde");
   }
 };
@@ -105,9 +114,11 @@ export const updateUserData = async (req: Request, res: Response) => {
   try {
     const dataToUpdate: IUserData = { name, age, email, password, isActive };
     const user = await updateUserDb(id, dataToUpdate);
+
     return res.status(200).send(user);
   } catch (error: any) {
     console.log("error:", error);
+
     return res.status(500).send("erro no servidor, tente novamente mais tarde");
   }
 };
