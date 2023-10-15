@@ -1,7 +1,9 @@
 export interface IUserData {
   name: string;
-  age: number;
+  cpf: string;
   email: string;
   password: string;
-  isActive?: boolean;
+  isAdmin: boolean;
+  address: string;
+  createdAt?: Date;
 }

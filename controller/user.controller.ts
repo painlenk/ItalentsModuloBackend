@@ -68,17 +68,19 @@ export const deleteUserData = async (req: Request, res: Response) => {
 };
 
 export const createUserData = async (req: Request, res: Response) => {
-  const { name, age, email, password } = req.body;
+  const { name, cpf, email, password, isAdmin, address } = req.body;
 
-  if (!name || !age || !email || !password) {
+  if (!name || !cpf || !email || !password || !isAdmin || !address) {
     return res.status(404).send("todos os campos são obrigatórios");
   }
 
   const userDataToCreate = {
-    name,
-    age,
     email,
+    cpf,
+    name,
     password,
+    isAdmin,
+    address,
   };
 
   const emailAlreadyExists = await getUserEmailDb(email);
@@ -101,9 +103,9 @@ export const createUserData = async (req: Request, res: Response) => {
 
 export const updateUserData = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { name, age, email, password, isActive } = req.body;
+  const { name, cpf, email, password, isAdmin, address } = req.body;
 
-  if (!id || !name || !age || !email || !password || isActive) {
+  if (!name || !cpf || !email || !password || !isAdmin || !address) {
     return res.status(404).send("todos os campos são obrigatórios");
   }
 
@@ -112,7 +114,14 @@ export const updateUserData = async (req: Request, res: Response) => {
   }
 
   try {
-    const dataToUpdate: IUserData = { name, age, email, password, isActive };
+    const dataToUpdate: IUserData = {
+      name,
+      cpf,
+      email,
+      password,
+      isAdmin,
+      address,
+    };
     const user = await updateUserDb(id, dataToUpdate);
 
     return res.status(200).send(user);

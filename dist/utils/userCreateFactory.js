@@ -1,13 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userCreateFactory = void 0;
-const userCreateFactory = ({ age, email, name, password, }) => {
+const userCreateFactory = ({ email, cpf, name, password, isAdmin, address, }) => {
     const userData = {
+        name,
+        cpf,
         email,
         password,
-        name,
-        age,
-        isActive: true,
+        isAdmin,
+        address,
+        createdAt: new Date(),
     };
     return userData;
 };

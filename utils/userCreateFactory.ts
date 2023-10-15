@@ -2,17 +2,21 @@ import { uuid } from "uuidv4";
 import { IUserData } from "../types/interfaces/user";
 
 export const userCreateFactory = ({
-  age,
   email,
+  cpf,
   name,
   password,
+  isAdmin,
+  address,
 }: IUserData) => {
   const userData = {
+    name,
+    cpf,
     email,
     password,
-    name,
-    age,
-    isActive: true,
+    isAdmin,
+    address,
+    createdAt: new Date(),
   } as IUserData;
 
   return userData;
