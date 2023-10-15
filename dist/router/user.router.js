@@ -26,7 +26,7 @@ router.get("/:id", async (req, res, Response) => {
 router.delete("/:id", async (req, res) => {
     await (0, user_controller_1.deleteUserData)(req, res);
 });
-router.get("/", async (req, res) => {
+router.get("/all", async (req, res) => {
     await (0, user_controller_1.getAllUsersData)(req, res);
 });
 exports.default = router;

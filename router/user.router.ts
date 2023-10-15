@@ -35,7 +35,7 @@ router.delete("/:id", async (req: Request, res: Response) => {
   await deleteUserData(req, res);
 });
 
-router.get("/", async (req: Request, res: Response) => {
+router.get("/all", async (req: Request, res: Response) => {
   await getAllUsersData(req, res);
 });
 
