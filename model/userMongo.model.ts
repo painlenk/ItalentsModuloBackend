@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-
 import { Schema, InferSchemaType } from "mongoose";
 import { IUserData } from "../types/interfaces/user";
+import bcrypt from "bcrypt";
 
 export const UserSchema = new Schema<IUserData>({
   name: { type: String, required: true },
@@ -11,6 +11,13 @@ export const UserSchema = new Schema<IUserData>({
   isAdmin: { type: Boolean, required: true },
   address: { type: String, required: true },
   createdAt: { type: Date, required: true },
+});
+
+UserSchema.pre("save", async function (next) {
+  if (this?.password) {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
+  next();
 });
 
 export type User = InferSchemaType<typeof UserSchema>; //cria um type de user do banco

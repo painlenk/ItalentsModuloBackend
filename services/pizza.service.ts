@@ -10,14 +10,13 @@ export const getPizzaDb = (id: string) => {
 };
 
 export const createPizzaDb = (data: IPizzaData) => {
-  const pizza = new PizzaDB(data)
-    .save()
-    .then(() => console.log("salvo no banco"))
-    .catch((error: Error) => console.log("error :", error));
+  const pizza = PizzaDB.create(data);
 };
 
 export const updatePizzaDb = (id: string, data: IPizzaData) => {
-  const pizza = PizzaDB.findByIdAndUpdate(id, data);
+  const pizza = PizzaDB.findByIdAndUpdate(id, data, {
+    returnDocument: "after",
+  });
   return pizza;
 };
 
