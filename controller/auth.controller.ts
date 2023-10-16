@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { generateToken, getUserEmailDb } from "../services/auth.service";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const secret = "123456abc";
@@ -17,8 +18,9 @@ export const loginUser = async (req: Request, res: Response) => {
     if (!user) {
       return res.status(401).send({ message: "usuário ou senha invalidos" });
     }
+    const authPassword = await bcrypt.compare(password, user.password);
 
-    if (password !== user?.password) {
+    if (!authPassword) {
       return res.status(401).send({ message: "usuário ou senha invalidos" });
     }
 

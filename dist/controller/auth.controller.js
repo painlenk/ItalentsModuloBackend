@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginToken = exports.loginUser = void 0;
 const auth_service_1 = require("../services/auth.service");
+const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const secret = "123456abc";
 const loginUser = async (req, res) => {
@@ -17,7 +18,8 @@ const loginUser = async (req, res) => {
         if (!user) {
             return res.status(401).send({ message: "usuário ou senha invalidos" });
         }
-        if (password !== user?.password) {
+        const authPassword = await bcrypt_1.default.compare(password, user.password);
+        if (!authPassword) {
             return res.status(401).send({ message: "usuário ou senha invalidos" });
         }
         const token = (0, auth_service_1.generateToken)(user.id, secret);

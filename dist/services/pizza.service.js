@@ -11,14 +11,13 @@ const getPizzaDb = (id) => {
 };
 exports.getPizzaDb = getPizzaDb;
 const createPizzaDb = (data) => {
-    const pizza = new pizzaMongo_model_1.PizzaDB(data)
-        .save()
-        .then(() => console.log("salvo no banco"))
-        .catch((error) => console.log("error :", error));
+    const pizza = pizzaMongo_model_1.PizzaDB.create(data);
 };
 exports.createPizzaDb = createPizzaDb;
 const updatePizzaDb = (id, data) => {
-    const pizza = pizzaMongo_model_1.PizzaDB.findByIdAndUpdate(id, data);
+    const pizza = pizzaMongo_model_1.PizzaDB.findByIdAndUpdate(id, data, {
+        returnDocument: "after",
+    });
     return pizza;
 };
 exports.updatePizzaDb = updatePizzaDb;
