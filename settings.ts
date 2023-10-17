@@ -1,1 +1,4 @@
-export const SECRET = "123456abc";
+require("dotenv").config();
+
+export const SECRET = process.env.JWTSECRET || "";
+export const DATABASEURL = process.env.DATABASEURL || "";

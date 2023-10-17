@@ -18,10 +18,8 @@ router.post("/create", async (req, res) => {
     await (0, user_controller_1.createUserData)(req, res);
 });
 router.post("/login", async (req, res) => {
-    // implementar toda de login
     await (0, auth_controller_1.loginUser)(req, res);
 });
-//router.use("/token", authorization(req: Request, res: Response, next: NextFunction));
 router.post("/token", (req, res) => {
     (0, auth_controller_1.loginToken)(req, res);
 });

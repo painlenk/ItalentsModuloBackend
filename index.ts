@@ -7,6 +7,7 @@ import { connectToDatabase } from "./src/database/pizzaDB";
 const port = 3000;
 
 const app = express();
+
 connectToDatabase();
 
 app.use(express.urlencoded({ extended: true }));

@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+import { DATABASEURL } from "../../settings";
 
 export function connectToDatabase() {
   mongoose
-    .connect("mongodb://127.0.0.1:27017/user", {})
+    .connect(`${DATABASEURL}/user`, {})
     .then(() => {
       console.log("MONGO DB CONECTADO");
     })
