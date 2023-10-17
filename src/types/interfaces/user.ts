@@ -7,3 +7,7 @@ export interface IUserData {
   address: string;
   createdAt?: Date;
 }
+
+export interface IUserTokenValid extends IUserData {
+  _id: string;
+}

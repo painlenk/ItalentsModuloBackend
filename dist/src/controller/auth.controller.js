@@ -7,7 +7,7 @@ exports.loginToken = exports.loginUser = void 0;
 const auth_service_1 = require("../services/auth.service");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const validateToken_1 = require("../utils/validateToken");
-const secret = "123456abc";
+const settings_1 = require("../../settings");
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -22,7 +22,7 @@ const loginUser = async (req, res) => {
         if (!authPassword) {
             return res.status(401).send({ message: "usuário ou senha invalidos" });
         }
-        const token = (0, auth_service_1.generateToken)(user.toJSON(), secret);
+        const token = (0, auth_service_1.generateToken)(user.toJSON(), settings_1.SECRET);
         return res.status(200).send({ user, message: "usuário logado", token });
     }
     catch (error) {
@@ -37,7 +37,7 @@ const loginToken = (req, res) => {
         if (!authorization) {
             return res.status(401).send({ message: "token não informado" });
         }
-        const token = (0, validateToken_1.validateToken)(authorization, secret);
+        const token = (0, validateToken_1.validateToken)(authorization, settings_1.SECRET);
         console.log("token -->", token);
         if (!token) {
             return res.status(401).send({ message: "token invalido" });

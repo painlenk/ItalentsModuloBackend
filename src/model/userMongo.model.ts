@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { Schema, InferSchemaType } from "mongoose";
-
 import bcrypt from "bcrypt";
 import { IUserData } from "../types/interfaces/user";
 

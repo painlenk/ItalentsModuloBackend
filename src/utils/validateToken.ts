@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import { IUserTokenValid } from "../types/interfaces/user";
 
 export const validateToken = (authorization: string, SECRET: string) => {
   const parts = authorization.split(" ");
@@ -13,11 +14,5 @@ export const validateToken = (authorization: string, SECRET: string) => {
     return false;
   }
 
-  return jwt.verify(token, SECRET, (error: any, decoder: any) => {
-    if (error) {
-      return false;
-    }
-
-    return decoder;
-  });
+  return jwt.verify(token, SECRET) as IUserTokenValid;
 };

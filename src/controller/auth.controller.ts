@@ -2,8 +2,7 @@ import { Request, Response } from "express";
 import { generateToken, getUserEmailDb } from "../services/auth.service";
 import bcrypt from "bcrypt";
 import { validateToken } from "../utils/validateToken";
-
-const secret = "123456abc";
+import { SECRET } from "../../settings";
 
 export const loginUser = async (req: Request, res: Response) => {
   try {
@@ -24,7 +23,7 @@ export const loginUser = async (req: Request, res: Response) => {
       return res.status(401).send({ message: "usuário ou senha invalidos" });
     }
 
-    const token = generateToken(user.toJSON(), secret);
+    const token = generateToken(user.toJSON(), SECRET);
 
     return res.status(200).send({ user, message: "usuário logado", token });
   } catch (error) {
@@ -41,7 +40,7 @@ export const loginToken = (req: Request, res: Response) => {
       return res.status(401).send({ message: "token não informado" });
     }
 
-    const token = validateToken(authorization, secret);
+    const token = validateToken(authorization, SECRET);
     console.log("token -->", token);
 
     if (!token) {

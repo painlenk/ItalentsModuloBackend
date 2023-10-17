@@ -14,11 +14,6 @@ const validateToken = (authorization, SECRET) => {
     if (!/^Bearer$/i.test(beerer)) {
         return false;
     }
-    return jsonwebtoken_1.default.verify(token, SECRET, (error, decoder) => {
-        if (error) {
-            return false;
-        }
-        return decoder;
-    });
+    return jsonwebtoken_1.default.verify(token, SECRET);
 };
 exports.validateToken = validateToken;
