@@ -8,7 +8,6 @@ import {
 } from "../services/pizza.service";
 import { pizzaCreateFactory } from "../utils/pizzaCreateFactory";
 import mongoose from "mongoose";
-import { PizzaDB } from "../model/pizzaMongo.model";
 
 export const getAllPizzas = async (req: Request, res: Response) => {
   try {
@@ -107,14 +106,12 @@ export const deletePizza = async (req: Request, res: Response) => {
 
     await deletePizzaDb(id);
 
-    return res
-      .status(200)
-      .send({
-        name: getUserToDelete.name,
-        size: getUserToDelete.size,
-        price: getUserToDelete.price,
-        message: "pizza deletada",
-      });
+    return res.status(200).send({
+      name: getUserToDelete.name,
+      size: getUserToDelete.size,
+      price: getUserToDelete.price,
+      message: "pizza deletada",
+    });
   } catch (error) {
     console.log("error -->", error);
 

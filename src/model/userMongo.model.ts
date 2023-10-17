@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 import { Schema, InferSchemaType } from "mongoose";
-import { IUserData } from "../types/interfaces/user";
+
 import bcrypt from "bcrypt";
+import { IUserData } from "../types/interfaces/user";
 
 export const UserSchema = new Schema<IUserData>({
   name: { type: String, required: true },

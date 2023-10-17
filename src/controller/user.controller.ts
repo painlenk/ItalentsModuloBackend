@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { IUserData } from "../types/interfaces/user";
+
 import { userCreateFactory } from "../utils/userCreateFactory";
 import mongoose from "mongoose";
 import {
@@ -10,6 +10,7 @@ import {
   updateUserDb,
 } from "../services/user.service";
 import { getUserEmailDb } from "../services/auth.service";
+import { IUserData } from "../types/interfaces/user";
 
 export const getAllUsersData = async (req: Request, res: Response) => {
   try {

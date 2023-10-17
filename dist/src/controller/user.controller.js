@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateUserData = exports.createUserData = exports.deleteUserData = exports.getUserData = exports.getAllUsersData = void 0;
-const userCreateFactory_1 = require("../src/utils/userCreateFactory");
+const userCreateFactory_1 = require("../utils/userCreateFactory");
 const mongoose_1 = __importDefault(require("mongoose"));
-const user_service_1 = require("../src/services/user.service");
-const auth_service_1 = require("../src/services/auth.service");
+const user_service_1 = require("../services/user.service");
+const auth_service_1 = require("../services/auth.service");
 const getAllUsersData = async (req, res) => {
     try {
         return res.status(200).send(await (0, user_service_1.getAllUsersDb)());

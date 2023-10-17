@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginToken = exports.loginUser = void 0;
-const auth_service_1 = require("../src/services/auth.service");
+const auth_service_1 = require("../services/auth.service");
 const bcrypt_1 = __importDefault(require("bcrypt"));
-const validateToken_1 = require("../src/utils/validateToken");
+const validateToken_1 = require("../utils/validateToken");
 const secret = "123456abc";
 const loginUser = async (req, res) => {
     try {

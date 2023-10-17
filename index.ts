@@ -1,8 +1,8 @@
 import express, { Router } from "express";
-import userRouter from "./router/user.router";
-import pizzaRouter from "./router/pizza.router";
+import userRouter from "./src/router/user.router";
+import pizzaRouter from "./src/router/pizza.router";
 import cors from "cors";
-import { connectToDatabase } from "./database/pizzaDB";
+import { connectToDatabase } from "./src/database/pizzaDB";
 
 const port = 3000;
 

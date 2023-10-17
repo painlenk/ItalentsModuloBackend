@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const user_router_1 = __importDefault(require("./router/user.router"));
-const pizza_router_1 = __importDefault(require("./router/pizza.router"));
+const user_router_1 = __importDefault(require("./src/router/user.router"));
+const pizza_router_1 = __importDefault(require("./src/router/pizza.router"));
 const cors_1 = __importDefault(require("cors"));
-const pizzaDB_1 = require("./database/pizzaDB");
+const pizzaDB_1 = require("./src/database/pizzaDB");
 const port = 3000;
 const app = (0, express_1.default)();
 (0, pizzaDB_1.connectToDatabase)();

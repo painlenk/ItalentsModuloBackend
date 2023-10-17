@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deletePizza = exports.updatePizza = exports.createPizza = exports.getPizza = exports.getAllPizzas = void 0;
-const pizza_service_1 = require("../src/services/pizza.service");
-const pizzaCreateFactory_1 = require("../src/utils/pizzaCreateFactory");
+const pizza_service_1 = require("../services/pizza.service");
+const pizzaCreateFactory_1 = require("../utils/pizzaCreateFactory");
 const mongoose_1 = __importDefault(require("mongoose"));
 const getAllPizzas = async (req, res) => {
     try {

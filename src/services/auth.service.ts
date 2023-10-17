@@ -6,6 +6,6 @@ export const getUserEmailDb = (email: string) => {
   return user;
 };
 
-export const generateToken = (id: string, secret: string) => {
-  return jwt.sign(id, secret);
+export const generateToken = (user: any, secret: string) => {
+  return jwt.sign(user, secret);
 };

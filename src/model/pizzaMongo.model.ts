@@ -1,5 +1,4 @@
-import mongoose, { mongo } from "mongoose";
-
+import mongoose from "mongoose";
 import { Schema, InferSchemaType } from "mongoose";
 import { IPizzaData } from "../types/interfaces/pizza";
 
