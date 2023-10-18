@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import userRouter from "./src/router/user.router";
 import pizzaRouter from "./src/router/pizza.router";
+import cartRouter from "./src/router/cart.router";
 import cors from "cors";
 import { connectToDatabase } from "./src/database/pizzaDB";
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/user", userRouter);
 app.use("/pizza", pizzaRouter);
+app.use("/cart", cartRouter);
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);

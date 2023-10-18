@@ -27,7 +27,7 @@ router.put("/update/:id", async (req, res) => {
     console.log("req ==>", req);
     await (0, user_controller_1.updateUserData)(req, res);
 });
-router.delete("/:id", async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
     await (0, user_controller_1.deleteUserData)(req, res);
 });
 exports.default = router;
