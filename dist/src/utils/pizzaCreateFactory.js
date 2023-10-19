@@ -6,7 +6,6 @@ const pizzaCreateFactory = ({ name, price, size }) => {
         name,
         price,
         size,
-        createdAt: new Date(),
     };
     return pizzaData;
 };

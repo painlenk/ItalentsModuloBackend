@@ -6,7 +6,7 @@ export const PizzaSchema = new Schema<IPizzaData>({
   name: { type: String, required: true },
   size: { type: String, required: true },
   price: { type: Number, required: true },
-  createdAt: { type: Date, required: true },
+  createdAt: { type: Date, required: true, default: Date.now() },
 });
 
 export type Pizza = InferSchemaType<typeof PizzaSchema>;

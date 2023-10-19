@@ -38,7 +38,6 @@ const loginToken = (req, res) => {
             return res.status(401).send({ message: "token não informado" });
         }
         const token = (0, validateToken_1.validateToken)(authorization, settings_1.SECRET);
-        console.log("token -->", token);
         if (!token) {
             return res.status(401).send({ message: "token invalido" });
         }

@@ -9,7 +9,6 @@ const userCreateFactory = ({ email, cpf, name, password, isAdmin, address, }) =>
         password,
         isAdmin,
         address,
-        createdAt: new Date(),
     };
     return userData;
 };

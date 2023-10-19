@@ -41,7 +41,6 @@ export const loginToken = (req: Request, res: Response) => {
     }
 
     const token = validateToken(authorization, SECRET);
-    console.log("token -->", token);
 
     if (!token) {
       return res.status(401).send({ message: "token invalido" });

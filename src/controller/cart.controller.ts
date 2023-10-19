@@ -39,8 +39,11 @@ export const getCart = async (req: Request, res: Response) => {
 export const createCart = async (req: Request, res: Response) => {
   try {
     //@TODO: fazer toda a verificação de criação
-    const batata = req.body;
-    const data = await createCartDb(batata);
+    const corpo = {
+      ...req.body,
+      userId: req?.body.userId,
+    };
+    const data = await createCartDb(corpo);
 
     return res.status(200).send(data);
   } catch (error) {

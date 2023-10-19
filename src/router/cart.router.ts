@@ -6,18 +6,25 @@ import {
   getCart,
   updateCart,
 } from "../controller/cart.controller";
+import { authorization } from "../middleware/authorization.middleware";
 
 const router = express.Router();
 
-router.get("/all", (req: Request, res: Response) => getAllCarts(req, res));
-router.get("/:id", (req: Request, res: Response) => getCart(req, res));
+router.get("/all", authorization, (req: Request, res: Response) =>
+  getAllCarts(req, res)
+);
+router.get("/:id", authorization, (req: Request, res: Response) =>
+  getCart(req, res)
+);
 
-router.post("/create", (req: Request, res: Response) => createCart(req, res));
-router.put("/update/:id", (req: Request, res: Response) =>
+router.post("/create", authorization, (req: Request, res: Response) => {
+  createCart(req, res);
+});
+router.put("/update/:id", authorization, (req: Request, res: Response) =>
   updateCart(req, res)
 );
 
-router.delete("/delete/:id", (req: Request, res: Response) =>
+router.delete("/delete/:id", authorization, (req: Request, res: Response) =>
   deleteCart(req, res)
 );
 

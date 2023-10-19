@@ -29,8 +29,11 @@ exports.getCart = getCart;
 const createCart = async (req, res) => {
     try {
         //@TODO: fazer toda a verificação de criação
-        const batata = req.body;
-        const data = await (0, cart_service_1.createCartDb)(batata);
+        const corpo = {
+            ...req.body,
+            userId: req?.body.userId,
+        };
+        const data = await (0, cart_service_1.createCartDb)(corpo);
         return res.status(200).send(data);
     }
     catch (error) {

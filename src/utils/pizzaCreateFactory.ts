@@ -5,7 +5,6 @@ export const pizzaCreateFactory = ({ name, price, size }: IPizzaData) => {
     name,
     price,
     size,
-    createdAt: new Date(),
   } as IPizzaData;
 
   return pizzaData;

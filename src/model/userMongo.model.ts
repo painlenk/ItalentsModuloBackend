@@ -10,7 +10,7 @@ export const UserSchema = new Schema<IUserData>({
   password: { type: String, required: true },
   isAdmin: { type: Boolean, required: true },
   address: { type: String, required: true },
-  createdAt: { type: Date, required: true },
+  createdAt: { type: Date, required: true, default: Date.now() },
 });
 
 UserSchema.pre("save", async function (next) {

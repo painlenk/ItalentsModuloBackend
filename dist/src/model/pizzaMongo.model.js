@@ -10,6 +10,6 @@ exports.PizzaSchema = new mongoose_2.Schema({
     name: { type: String, required: true },
     size: { type: String, required: true },
     price: { type: Number, required: true },
-    createdAt: { type: Date, required: true },
+    createdAt: { type: Date, required: true, default: Date.now() },
 });
 exports.PizzaDB = mongoose_1.default.model("pizza", exports.PizzaSchema);

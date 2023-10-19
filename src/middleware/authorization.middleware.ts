@@ -28,6 +28,6 @@ export const authorization = async (
     //verifica se o banco retornou um user e ele tem id
     return res.status(401).send({ message: "O token inválido" });
   }
-
+  req.body.userId = user.id;
   next();
 };

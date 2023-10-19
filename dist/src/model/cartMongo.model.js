@@ -6,15 +6,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.cartDb = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const CartSchema = new mongoose_1.default.Schema({
-    pizza: [
+    pizzas: [
         {
-            _Id: { type: mongoose_1.default.Schema.Types.ObjectId, ref: "pizza" },
+            _id: {
+                type: mongoose_1.default.Schema.Types.ObjectId,
+                ref: "pizza",
+                required: true,
+            },
             quantity: { type: Number, required: true },
         },
     ],
-    createdAt: { type: Date, require: true, default: Date.now() },
+    createdAt: { type: Date, required: true, default: Date.now() },
     totalPrice: { type: Number, required: true },
     freight: { type: Number, required: true },
-    userId: { type: mongoose_1.default.Schema.Types.ObjectId, ref: "user" },
+    userId: { type: mongoose_1.default.Schema.Types.ObjectId, ref: "user", required: true },
 });
 exports.cartDb = mongoose_1.default.model("cart", CartSchema);

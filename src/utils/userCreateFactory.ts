@@ -15,7 +15,6 @@ export const userCreateFactory = ({
     password,
     isAdmin,
     address,
-    createdAt: new Date(),
   } as IUserData;
 
   return userData;
