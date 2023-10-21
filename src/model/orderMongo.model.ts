@@ -1,6 +1,6 @@
-import mongoose, { InferSchemaType } from "mongoose";
+import mongoose, { InferSchemaType, mongo } from "mongoose";
 
-const CartSchema = new mongoose.Schema({
+const OrderSchema = new mongoose.Schema({
   pizzas: [
     {
       _id: {
@@ -15,7 +15,9 @@ const CartSchema = new mongoose.Schema({
   totalPrice: { type: Number, required: true },
   freight: { type: Number, required: true },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true },
+  closed: { type: Boolean, required: true },
 });
 
-export type Cart = InferSchemaType<typeof CartSchema>;
-export const cartDb = mongoose.model("cart", CartSchema);
+export type Order = InferSchemaType<typeof OrderSchema>;
+
+export const OrderDb = mongoose.model("order", OrderSchema);
