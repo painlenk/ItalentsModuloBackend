@@ -40,9 +40,11 @@ const createOrder = async (req, res) => {
     }
 };
 exports.createOrder = createOrder;
-const updateOrder = (req, res) => {
+const updateOrder = async (req, res) => {
     try {
-        return res.status(200).send("ok");
+        const { id } = req.params;
+        const data = await (0, order_service_1.updateOrderDb)(id);
+        return res.status(200).send({ data, message: "pedido fechado" });
     }
     catch (error) {
         console.log("error -->", error);

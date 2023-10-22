@@ -21,7 +21,7 @@ router.get("/:id", authorization, (req: Request, res: Response) =>
 router.post("/create", authorization, (req: Request, res: Response) =>
   createOrder(req, res)
 );
-router.put("/update/:id", authorization, (req: Request, res: Response) =>
+router.patch("/update/:id", authorization, (req: Request, res: Response) =>
   updateOrder(req, res)
 );
 

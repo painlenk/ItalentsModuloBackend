@@ -10,6 +10,6 @@ const router = express_1.default.Router();
 router.get("/all", authorization_middleware_1.authorization, (req, res) => (0, order_controller_1.getAllOrders)(req, res));
 router.get("/:id", authorization_middleware_1.authorization, (req, res) => (0, order_controller_1.getOrder)(req, res));
 router.post("/create", authorization_middleware_1.authorization, (req, res) => (0, order_controller_1.createOrder)(req, res));
-router.put("/update/:id", authorization_middleware_1.authorization, (req, res) => (0, order_controller_1.updateOrder)(req, res));
+router.patch("/update/:id", authorization_middleware_1.authorization, (req, res) => (0, order_controller_1.updateOrder)(req, res));
 router.delete("/delete/:id", authorization_middleware_1.authorization, (req, res) => (0, order_controller_1.deleteOrder)(req, res));
 exports.default = router;

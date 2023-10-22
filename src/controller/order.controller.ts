@@ -4,6 +4,7 @@ import {
   getOrderDb,
   createOrderDb,
   deleteOrderDb,
+  updateOrderDb,
 } from "../services/order.service";
 
 export const getAllOrders = async (req: Request, res: Response) => {
@@ -49,9 +50,12 @@ export const createOrder = async (req: Request, res: Response) => {
   }
 };
 
-export const updateOrder = (req: Request, res: Response) => {
+export const updateOrder = async (req: Request, res: Response) => {
   try {
-    return res.status(200).send("ok");
+    const { id } = req.params;
+    const data = await updateOrderDb(id);
+
+    return res.status(200).send({ data, message: "pedido fechado" });
   } catch (error) {
     console.log("error -->", error);
 

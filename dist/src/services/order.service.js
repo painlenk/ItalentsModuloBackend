@@ -14,7 +14,9 @@ const createOrderDb = (order) => {
     return orderMongo_model_1.OrderDb.create(order);
 };
 exports.createOrderDb = createOrderDb;
-const updateOrderDb = () => { };
+const updateOrderDb = (id) => {
+    return orderMongo_model_1.OrderDb.findByIdAndUpdate({ _id: id }, { $set: { closed: true } });
+};
 exports.updateOrderDb = updateOrderDb;
 const deleteOrderDb = (id) => {
     return orderMongo_model_1.OrderDb.findByIdAndDelete(id);
