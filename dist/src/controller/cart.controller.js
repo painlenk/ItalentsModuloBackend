@@ -16,7 +16,6 @@ exports.getAllCarts = getAllCarts;
 const getCart = async (req, res) => {
     try {
         const { id } = req.params;
-        //@TODO: verificar se é um id valido
         const data = await (0, cart_service_1.getCartDb)(id);
         return res.status(200).send(data);
     }
@@ -28,7 +27,6 @@ const getCart = async (req, res) => {
 exports.getCart = getCart;
 const createCart = async (req, res) => {
     try {
-        //@TODO: fazer toda a verificação de criação
         const corpo = {
             ...req.body,
             userId: req?.body.userId,
@@ -44,10 +42,9 @@ const createCart = async (req, res) => {
 exports.createCart = createCart;
 const updateCart = async (req, res) => {
     try {
-        //@TODO: fazer toda a verificação de update
         const { id } = req.params;
-        const batata = req.body;
-        const data = await (0, cart_service_1.updateCartDb)(id, batata);
+        const newCart = req.body;
+        const data = await (0, cart_service_1.updateCartDb)(id, newCart);
         return res.status(200).send(data);
     }
     catch (error) {
@@ -58,7 +55,6 @@ const updateCart = async (req, res) => {
 exports.updateCart = updateCart;
 const deleteCart = async (req, res) => {
     try {
-        //@TODO: verificar se o id é valido
         const { id } = req.params;
         const data = await (0, cart_service_1.deleteCartDb)(id);
         return res.status(200).send(data);

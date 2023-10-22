@@ -20,9 +20,6 @@ const getAllUsersData = async (req, res) => {
 exports.getAllUsersData = getAllUsersData;
 const getUserData = async (req, res) => {
     const { id } = req.params;
-    if (!id) {
-        return res.status(404).send("campo  'id' não informado");
-    }
     if (!mongoose_1.default.Types.ObjectId.isValid(id)) {
         return res.status(404).send("id invalido");
     }
@@ -38,9 +35,6 @@ const getUserData = async (req, res) => {
 exports.getUserData = getUserData;
 const deleteUserData = async (req, res) => {
     const { id } = req.params;
-    if (!id) {
-        return res.status(404).send("o id deve ser fornecido");
-    }
     if (!mongoose_1.default.Types.ObjectId.isValid(id)) {
         return res.status(404).send("id invalido");
     }
@@ -60,9 +54,6 @@ const deleteUserData = async (req, res) => {
 exports.deleteUserData = deleteUserData;
 const createUserData = async (req, res) => {
     const { name, cpf, email, password, isAdmin, address } = req.body;
-    if (!name || !cpf || !email || !password || !isAdmin || !address) {
-        return res.status(404).send("todos os campos são obrigatórios");
-    }
     const userDataToCreate = {
         email,
         cpf,
@@ -89,9 +80,6 @@ exports.createUserData = createUserData;
 const updateUserData = async (req, res) => {
     const { id } = req.params;
     const { name, cpf, email, password, isAdmin, address } = req.body;
-    if (!name || !cpf || !email || !password || !isAdmin || !address) {
-        return res.status(404).send("todos os campos são obrigatórios");
-    }
     if (!mongoose_1.default.Types.ObjectId.isValid(id)) {
         return res.status(404).send("id invalido");
     }

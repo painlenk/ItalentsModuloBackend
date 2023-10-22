@@ -17,7 +17,6 @@ const authorization = async (req, res, next) => {
     }
     const user = await (0, user_service_1.getUserDb)(token?._id); //envia o id do token para o getuser
     if (!user || !user?.id) {
-        //verifica se o banco retornou um user e ele tem id
         return res.status(401).send({ message: "O token inválido" });
     }
     req.body.userId = user.id;
