@@ -1,13 +1,13 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2023-10-22T16:07:29.773Z",
+  "__export_date": "2023-10-22T19:32:05.095Z",
   "__export_source": "insomnia.desktop.app:v2023.5.8",
   "resources": [
     {
       "_id": "req_f8067c38db5c4783b72975f364d48845",
       "parentId": "fld_56a2692814bd4aa9bf1b167f422f75ad",
-      "modified": 1697850043029,
+      "modified": 1697993817956,
       "created": 1697849860357,
       "url": "http://localhost:3000/order/create",
       "name": "create order",
@@ -15,7 +15,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"pizzas\": [\n\t\t{\n\t\t\t\"_id\": \"652db99dc07b2c9903527f41\",\n\t\t\t\"quantity\": 2\n\t\t}\n\t],\n\t\n\t\"totalPrice\": 49.9,\n\t\"freight\": 0,\n\t\"closed\":false\n}"
+        "text": "{\n\t\"pizzas\": [\n\t\t{\n\t\t\t\"_id\": \"653550cf9ed6e329610505c1\",\n\t\t\t\"quantity\": 2\n\t\t}\n\t],\n\t\n\t\"totalPrice\": 49.9,\n\t\"freight\": 10,\n\t\"closed\":false\n}"
       },
       "parameters": [],
       "headers": [
@@ -181,9 +181,9 @@
     {
       "_id": "req_83feab0bfcd84b63966dbf6c7b65da80",
       "parentId": "fld_56a2692814bd4aa9bf1b167f422f75ad",
-      "modified": 1697909229436,
+      "modified": 1697993929426,
       "created": 1697909098815,
-      "url": "http://localhost:3000/order/update/653322bc89e44d20e620d5a7",
+      "url": "http://localhost:3000/order/update/6535545bb75a7b1d293ad844",
       "name": "update order",
       "description": "",
       "method": "PATCH",
@@ -219,12 +219,12 @@
     {
       "_id": "req_f746fed9cff54ee8a5721c241db15f3f",
       "parentId": "fld_295f64ea7f294653ad38ba1403165d48",
-      "modified": 1697675654363,
+      "modified": 1697992950289,
       "created": 1697223992317,
-      "url": "http://localhost:3000/user/create",
+      "url": "http://localhost:3000/user/all",
       "name": "get all users",
       "description": "",
-      "method": "POST",
+      "method": "GET",
       "body": {
         "mimeType": "application/json",
         "text": ""
@@ -307,7 +307,7 @@
     {
       "_id": "req_4e43ab9f09fb4f4bb07e8745e6db5ca6",
       "parentId": "fld_295f64ea7f294653ad38ba1403165d48",
-      "modified": 1697675496199,
+      "modified": 1697991825987,
       "created": 1697223808492,
       "url": "http://localhost:3000/user/create",
       "name": "create user",
@@ -315,7 +315,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\"name\": \"teste batata 2\",\n\t\"cpf\": \"1234567891011\",\n\t\"email\": \"teste222@batata22.com\",\n\t\"password\": \"123456\",\n\t\"isAdmin\": true,\n\t\"address\": \"rua teste do teste\"\n}"
+        "text": "{\n\"name\": \"teste batata 22\",\n\t\"cpf\": \"12345678910111\",\n\t\"email\": \"teste222@batata222.com\",\n\t\"password\": \"123456\",\n\t\"isAdmin\": true,\n\t\"address\": \"rua teste do teste\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -342,9 +342,9 @@
     {
       "_id": "req_f2d492f721b8401aa5a7c0756e48ead5",
       "parentId": "fld_295f64ea7f294653ad38ba1403165d48",
-      "modified": 1697675498832,
+      "modified": 1697991737665,
       "created": 1697223913117,
-      "url": "http://localhost:3000/user/652aa2659a6776a560bd826a",
+      "url": "http://localhost:3000/user/delete/652da6d76605418092a4dafe",
       "name": "delete user",
       "description": "",
       "method": "DELETE",
@@ -356,7 +356,10 @@
           "value": "insomnia/2023.5.8"
         }
       ],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJkYmI0MzFmYmU2NjU5YTliN2NmODAiLCJuYW1lIjoidGVzdGUgYmF0YXRhIDIiLCJjcGYiOiIxMjM0NTY3ODkxMDExIiwiZW1haWwiOiJ0ZXN0ZTIyMkBiYXRhdGEyMi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRrck9QRHBNNFZOU2hnUkFNbFhESEQuRzhxRi9ySlp6NUgxYU5MQ3F2dmZNeVlsZE84QkNwbSIsImlzQWRtaW4iOnRydWUsImFkZHJlc3MiOiJydWEgdGVzdGUgZG8gdGVzdGUiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTE2VDIyOjM3OjU1LjY4N1oiLCJfX3YiOjAsImlhdCI6MTY5Nzk5MTcyNH0.bZgHOuk3OwraPganlPewQX4tuOljKN2kzf9askmwIak"
+      },
       "metaSortKey": -1697675472429,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -370,9 +373,9 @@
     {
       "_id": "req_39de2866befd42b89d302a79d97b2d59",
       "parentId": "fld_295f64ea7f294653ad38ba1403165d48",
-      "modified": 1697675502257,
+      "modified": 1697992242108,
       "created": 1696781787556,
-      "url": "http://localhost:3000/user/update/652da6d76605418092a4dafe",
+      "url": "http://localhost:3000/user/update/652dbb16c07b2c9903527f57",
       "name": "update",
       "description": "",
       "method": "PUT",
@@ -391,7 +394,10 @@
           "value": "insomnia/2023.5.8"
         }
       ],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJkYmI0MzFmYmU2NjU5YTliN2NmODAiLCJuYW1lIjoidGVzdGUgYmF0YXRhIDIiLCJjcGYiOiIxMjM0NTY3ODkxMDExIiwiZW1haWwiOiJ0ZXN0ZTIyMkBiYXRhdGEyMi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRrck9QRHBNNFZOU2hnUkFNbFhESEQuRzhxRi9ySlp6NUgxYU5MQ3F2dmZNeVlsZE84QkNwbSIsImlzQWRtaW4iOnRydWUsImFkZHJlc3MiOiJydWEgdGVzdGUgZG8gdGVzdGUiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTE2VDIyOjM3OjU1LjY4N1oiLCJfX3YiOjAsImlhdCI6MTY5Nzk5MTcyNH0.bZgHOuk3OwraPganlPewQX4tuOljKN2kzf9askmwIak"
+      },
       "metaSortKey": -1697675472416.5,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -511,9 +517,9 @@
     {
       "_id": "req_ce7c5c0d7a324856bb73b8b50093c145",
       "parentId": "fld_64afb86f4e3543aa8481085a44667ce2",
-      "modified": 1697675435623,
+      "modified": 1697992773696,
       "created": 1697378986083,
-      "url": "http://localhost:3000/pizza/id",
+      "url": "http://localhost:3000/pizza/652db99dc07b2c9903527f41",
       "name": "get pizza",
       "description": "",
       "method": "GET",
@@ -539,7 +545,7 @@
     {
       "_id": "req_429e06513164414f85f04b0da711f875",
       "parentId": "fld_64afb86f4e3543aa8481085a44667ce2",
-      "modified": 1697675457182,
+      "modified": 1697992884055,
       "created": 1697379136839,
       "url": "http://localhost:3000/pizza/create",
       "name": "create pizza",
@@ -547,7 +553,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"name\": \"marguerita\",\n\t\"price\": 39.90 ,\n\t\"size\": \"M\" \n}"
+        "text": "{\n\t\"name\": \"peperoni\",\n\t\"price\": 39.90 ,\n\t\"size\": \"M\" \n}"
       },
       "parameters": [],
       "headers": [
@@ -560,7 +566,10 @@
           "value": "insomnia/2023.5.8"
         }
       ],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJkYmI0MzFmYmU2NjU5YTliN2NmODAiLCJuYW1lIjoidGVzdGUgYmF0YXRhIDIiLCJjcGYiOiIxMjM0NTY3ODkxMDExIiwiZW1haWwiOiJ0ZXN0ZTIyMkBiYXRhdGEyMi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRrck9QRHBNNFZOU2hnUkFNbFhESEQuRzhxRi9ySlp6NUgxYU5MQ3F2dmZNeVlsZE84QkNwbSIsImlzQWRtaW4iOnRydWUsImFkZHJlc3MiOiJydWEgdGVzdGUgZG8gdGVzdGUiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTE2VDIyOjM3OjU1LjY4N1oiLCJfX3YiOjAsImlhdCI6MTY5Nzk5MTcyNH0.bZgHOuk3OwraPganlPewQX4tuOljKN2kzf9askmwIak"
+      },
       "metaSortKey": -1697675432831.75,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -574,9 +583,9 @@
     {
       "_id": "req_2ae2322db5f941c2abeb2f587ee843a6",
       "parentId": "fld_64afb86f4e3543aa8481085a44667ce2",
-      "modified": 1697675449851,
+      "modified": 1697993026798,
       "created": 1697379666923,
-      "url": "http://localhost:3000/pizza/delete/652bf668d0031a3ad4fe482b",
+      "url": "http://localhost:3000/pizza/delete/652db99dc07b2c9903527f41",
       "name": "delete pizza",
       "description": "",
       "method": "DELETE",
@@ -588,7 +597,10 @@
           "value": "insomnia/2023.5.8"
         }
       ],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJkYmI0MzFmYmU2NjU5YTliN2NmODAiLCJuYW1lIjoidGVzdGUgYmF0YXRhIDIiLCJjcGYiOiIxMjM0NTY3ODkxMDExIiwiZW1haWwiOiJ0ZXN0ZTIyMkBiYXRhdGEyMi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRrck9QRHBNNFZOU2hnUkFNbFhESEQuRzhxRi9ySlp6NUgxYU5MQ3F2dmZNeVlsZE84QkNwbSIsImlzQWRtaW4iOnRydWUsImFkZHJlc3MiOiJydWEgdGVzdGUgZG8gdGVzdGUiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTE2VDIyOjM3OjU1LjY4N1oiLCJfX3YiOjAsImlhdCI6MTY5Nzk5MTcyNH0.bZgHOuk3OwraPganlPewQX4tuOljKN2kzf9askmwIak"
+      },
       "metaSortKey": -1697675432825.5,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -602,15 +614,15 @@
     {
       "_id": "req_bf462b156e5e4ef1a35eb237e3903846",
       "parentId": "fld_64afb86f4e3543aa8481085a44667ce2",
-      "modified": 1697675447425,
+      "modified": 1697993149652,
       "created": 1697379566253,
-      "url": "http://localhost:3000/pizza/update/652bf41ff5405e31f76158e3",
+      "url": "http://localhost:3000/pizza/update/653550cf9ed6e329610505c1",
       "name": "update pizza",
       "description": "",
       "method": "PUT",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"name\": \"marguerita\",\n\t\"price\": 69.90 ,\n\t\"size\": \"M\" \n}"
+        "text": "{\n\t\"name\": \"marguerita\",\n\t\"price\": 98 ,\n\t\"size\": \"M\" \n}"
       },
       "parameters": [],
       "headers": [
@@ -623,7 +635,10 @@
           "value": "insomnia/2023.5.8"
         }
       ],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJkYmI0MzFmYmU2NjU5YTliN2NmODAiLCJuYW1lIjoidGVzdGUgYmF0YXRhIDIiLCJjcGYiOiIxMjM0NTY3ODkxMDExIiwiZW1haWwiOiJ0ZXN0ZTIyMkBiYXRhdGEyMi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRrck9QRHBNNFZOU2hnUkFNbFhESEQuRzhxRi9ySlp6NUgxYU5MQ3F2dmZNeVlsZE84QkNwbSIsImlzQWRtaW4iOnRydWUsImFkZHJlc3MiOiJydWEgdGVzdGUgZG8gdGVzdGUiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTE2VDIyOjM3OjU1LjY4N1oiLCJfX3YiOjAsImlhdCI6MTY5Nzk5MTcyNH0.bZgHOuk3OwraPganlPewQX4tuOljKN2kzf9askmwIak"
+      },
       "metaSortKey": -1697675432813,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -637,7 +652,7 @@
     {
       "_id": "req_5b13b45df3b34d0ab3d625a92f3f28d2",
       "parentId": "fld_8e32a855d09d4acd9a0a1c9b25dc7a0a",
-      "modified": 1697676336867,
+      "modified": 1697994236437,
       "created": 1697675592577,
       "url": "http://localhost:3000/cart/create",
       "name": "create cart",
@@ -645,7 +660,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"pizzas\": [\n\t\t{\n\t\t\t\"_id\": \"652db99dc07b2c9903527f41\",\n\t\t\t\"quantity\": 2\n\t\t}\n\t],\n\t\n\t\"totalPrice\": 49.9,\n\t\"freight\": 0\n}"
+        "text": "{\n\t\"pizzas\": [\n\t\t{\n\t\t\t\"_id\": \"652db99dc07b2c9903527f41\",\n\t\t\t\"quantity\": 2\n\t\t}\n\t],\n\t\n\t\"totalPrice\": 49.9,\n\t\"freight\": 10\n}"
       },
       "parameters": [],
       "headers": [
@@ -687,15 +702,15 @@
     {
       "_id": "req_452bdfc07b7d441dbd21362082a7f879",
       "parentId": "fld_8e32a855d09d4acd9a0a1c9b25dc7a0a",
-      "modified": 1697676871561,
+      "modified": 1697994314339,
       "created": 1697676744031,
-      "url": "http://localhost:3000/cart/update/65307def404d1e05a847a55d",
+      "url": "http://localhost:3000/cart/update/65307c3249eaad16dcb7e67a",
       "name": "update cart",
       "description": "",
       "method": "PUT",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"pizzas\": [\n\t\t{\n\t\t\t\"_id\": \"652db99dc07b2c9903527f41\",\n\t\t\t\"quantity\": 2\n\t\t}\n\t],\n\t\n\t\"totalPrice\": 89.9,\n\t\"freight\": 50\n}"
+        "text": "{\n\t\"pizzas\": [\n\t\t{\n\t\t\t\"_id\": \"652db99dc07b2c9903527f41\",\n\t\t\t\"quantity\": 2\n\t\t}\n\t],\n\t\n\t\"totalPrice\": 89.9,\n\t\"freight\": 500\n}"
       },
       "parameters": [],
       "headers": [
@@ -787,9 +802,9 @@
     {
       "_id": "req_03b3efdf911347558a359206e4694f63",
       "parentId": "fld_8e32a855d09d4acd9a0a1c9b25dc7a0a",
-      "modified": 1697676958851,
+      "modified": 1697994326844,
       "created": 1697676893857,
-      "url": "http://localhost:3000/cart/delete/65307def404d1e05a847a55d",
+      "url": "http://localhost:3000/cart/delete/65307c3249eaad16dcb7e67a",
       "name": "delete cart",
       "description": "",
       "method": "DELETE",
@@ -836,6 +851,19 @@
       "name": "Default Jar",
       "cookies": [],
       "_type": "cookie_jar"
+    },
+    {
+      "_id": "env_655114e1900c48298cf191b7304bdd87",
+      "parentId": "env_d95f1d8674e7239a5e78fd5b2dd0e1b2c85ca782",
+      "modified": 1697992904831,
+      "created": 1697992904831,
+      "name": "New Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1697992904831,
+      "_type": "environment"
     }
   ]
 }
