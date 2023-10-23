@@ -19,7 +19,7 @@ export const validateCartCreate = (
 ) => {
   const { pizzas, totalPrice, freight } = req.body;
 
-  if (!pizzas || !totalPrice || !freight) {
+  if (!pizzas || !totalPrice || freight === undefined) {
     return res
       .status(404)
       .send("os campos: pizzas, totalPrice, freight  são requeridos");
@@ -36,7 +36,7 @@ export const validateCartUpdate = (
   const { pizzas, totalPrice, freight } = req.body;
   const { id } = req.params;
 
-  if (!pizzas || !totalPrice || !freight || !id) {
+  if (!pizzas || !totalPrice || freight === undefined || !id) {
     return res
       .status(404)
       .send("os campos: pizzas, totalPrice, freight e id   são requeridos");

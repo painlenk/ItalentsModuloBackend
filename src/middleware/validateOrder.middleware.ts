@@ -19,7 +19,7 @@ export const validateOrderCreate = (
 ) => {
   const { pizzas, totalPrice, freight } = req.body;
 
-  if (!pizzas || !totalPrice || !freight) {
+  if (!pizzas || !totalPrice || freight === undefined) {
     return res
       .status(404)
       .send("os campos: pizzas, totalPrice, freight e closed  são requeridos");
