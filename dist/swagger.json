@@ -190,7 +190,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Retorna o objeto criado no banco",
+                        "description": "Cria um usuário no banco",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -228,14 +228,77 @@
                         "bearerAuth": []
                     }
                 ],
-                "sumary": "Busca o usuário com base no id",
-                "description": "Rota responsavel por buscar o usuários da api",
+                "sumary": "Busca o usuário e atualizar com base no id",
+                "description": "Rota responsavel por buscar o usuários e atualizar na api",
                 "tags": [
                     "Usuário"
                 ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        },
+                        "name": "id"
+                    },
+                    {
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/user"
+                        },
+                        "name": "body"
+                    }
+                ],
                 "responses": {
                     "201": {
-                        "description": "aaa"
+                        "description": "retorna o usuário atualizado no banco"
+                    },
+                    "401": {
+                        "description": "Erro de autenticação, problema com o Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -247,14 +310,1245 @@
                         "bearerAuth": []
                     }
                 ],
-                "sumary": "Busca o usuário com base no id",
-                "description": "Rota responsavel por buscar o usuários da api",
+                "sumary": "Busca o usuário com base no id e o deleta",
+                "description": "Rota responsavel por buscar o usuários da api e deletalo ",
                 "tags": [
                     "Usuário"
                 ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        },
+                        "name": "id"
+                    }
+                ],
                 "responses": {
                     "201": {
-                        "description": "aaa"
+                        "description": "Deleta usuário do banco"
+                    },
+                    "401": {
+                        "description": "Erro de autenticação, problema com o Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pizza/all": {
+            "get": {
+                "sumary": "Lista todos as pizzas",
+                "description": "Rota responsavel por listar todos as pizzas da api",
+                "tags": [
+                    "Pizzas"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/pizza"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pizza/{id}": {
+            "get": {
+                "sumary": "Busca a pizza com base no id",
+                "description": "Rota responsavel por buscar a pizza na api",
+                "tags": [
+                    "Pizzas"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        },
+                        "name": "id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retorna uma pizza que foi encontrado pelo id",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/pizza"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Erro de autenticação, problema com o Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pizza/create": {
+            "post": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "Cria uma nova pizza",
+                "description": "Rota responsavel por criar uma pizza na api",
+                "tags": [
+                    "Pizzas"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/pizza"
+                        },
+                        "name": "body"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Cria uma pizza no banco",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/pizza"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pizza/update/{id}": {
+            "put": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "atualiza uma pizza  com base no id",
+                "description": "Rota responsavel por atualiza  a pizza na api com base no id",
+                "tags": [
+                    "Pizzas"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        },
+                        "name": "id"
+                    },
+                    {
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/pizza"
+                        },
+                        "name": "body"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "retorna a pizza atualizada no banco"
+                    },
+                    "401": {
+                        "description": "Erro de autenticação, problema com o Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pizza/delete/{id}": {
+            "delete": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "deleta pizza na api",
+                "description": "Rota responsavel por buscar  e deletar uma pizza na api com base no id ",
+                "tags": [
+                    "Pizzas"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        },
+                        "name": "id"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Deleta pizza do banco"
+                    },
+                    "401": {
+                        "description": "Erro de autenticação, problema com o Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/all": {
+            "get": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "Lista todos os carrinhos",
+                "description": "Rota responsavel por listar todos os carrinhos da api",
+                "tags": [
+                    "Carts"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/cart"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "Busca um carrinho  com base no id",
+                "description": "Rota responsavel por buscar um carrinho  da api com base no id",
+                "tags": [
+                    "Carts"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        },
+                        "name": "id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retorna um carrinho que foi encontrado pelo id",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/cart"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Erro de autenticação, problema com o Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/create": {
+            "post": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "Cria uma novo carrinho na api",
+                "description": "Rota responsavel por criar um carrinho na api",
+                "tags": [
+                    "Carts"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/cart"
+                        },
+                        "name": "body"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Cria uma carrinho no banco",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/pizza"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/update/{id}": {
+            "put": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "Atualiza um carrinho com base no id",
+                "description": "Rota responsavel por atualiza o o carrinho na api com base no id",
+                "tags": [
+                    "Carts"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        },
+                        "name": "id"
+                    },
+                    {
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/cart"
+                        },
+                        "name": "body"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "retorna o carrinho   atualizado no banco"
+                    },
+                    "401": {
+                        "description": "Erro de autenticação, problema com o Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cart/delete/{id}": {
+            "delete": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "deleta carrinho na api",
+                "description": "Rota responsavel por buscar  e deletar um carrinho  na api com base no id ",
+                "tags": [
+                    "Pizzas"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        },
+                        "name": "id"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Deleta um carrinho do banco"
+                    },
+                    "401": {
+                        "description": "Erro de autenticação, problema com o Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/order/all": {
+            "get": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "Lista todos os pedidos",
+                "description": "Rota responsavel por listar todos os pedidos da api",
+                "tags": [
+                    "Orders"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retorna um pedido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/order"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/order/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "Busca um pedido  com base no id",
+                "description": "Rota responsavel por buscar um pedido  da api com base no id",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        },
+                        "name": "id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retorna um pedido que foi encontrado pelo id",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/order"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Erro de autenticação, problema com o Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/order/create": {
+            "post": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "Cria uma novo pedido na api",
+                "description": "Rota responsavel por criar um pedido na api",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/order"
+                        },
+                        "name": "body"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Cria um pedido no banco",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/order"
+                                }
+                            }
+                        }
+                    }
+                },
+                "500": {
+                    "description": "Erro no servidor",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "message": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/order/update/{id}": {
+            "put": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "Atualiza um pedido com base no id",
+                "description": "Rota responsavel por atualiza o pedido na api com base no id",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        },
+                        "name": "id"
+                    },
+                    {
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/order"
+                        },
+                        "name": "body"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "retorna o pedido atualizado no banco",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/order"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Erro de autenticação, problema com o Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/order/delete/{id}": {
+            "delete": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "deleta pedido na api",
+                "description": "Rota responsavel por buscar  e deletar um pedido  na api com base no id ",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        },
+                        "name": "id"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Deleta um pedido do banco"
+                    },
+                    "401": {
+                        "description": "Erro de autenticação, problema com o Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/login": {
+            "post": {
+                "sumary": "Realiza login",
+                "description": "Rota responsavel por realizar o login ",
+                "tags": [
+                    "Authentication"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/authentication"
+                        },
+                        "name": "body"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "realiza login e retorna os dados do usuario logado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/authenticationToken"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/token": {
+            "post": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "sumary": "Realiza login via token",
+                "description": "Rota responsavel por realizar o login via token ",
+                "tags": [
+                    "Authentication"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "realiza login via token e retorna os dados do usuario logado via token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/authenticationToken"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro na requisição",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -316,7 +1610,17 @@
                 "type": "object",
                 "properties": {
                     "pizzas": {
-                        "type": "string"
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "_id": {
+                                    "type": "string"
+                                },
+                                "quantity": {
+                                    "type": "number"
+                                }
+                            }
+                        }
                     },
                     "createdAt": {
                         "type": "string"
@@ -328,6 +1632,64 @@
                         "type": "number"
                     },
                     "userId": {
+                        "type": "string"
+                    }
+                }
+            },
+            "order": {
+                "type": "object",
+                "properties": {
+                    "pizzas": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "_id": {
+                                    "type": "string"
+                                },
+                                "quantity": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "createdAt": {
+                        "type": "string"
+                    },
+                    "totalPrice": {
+                        "type": "number"
+                    },
+                    "freigth": {
+                        "type": "number"
+                    },
+                    "userId": {
+                        "type": "string"
+                    },
+                    "close": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "authentication": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            },
+            "authenticationToken": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "token": {
                         "type": "string"
                     }
                 }
