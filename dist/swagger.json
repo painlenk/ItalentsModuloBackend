@@ -103,7 +103,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "scheme": {
                             "type": "string"
@@ -235,7 +235,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "scheme": {
                             "type": "string"
@@ -317,7 +317,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "scheme": {
                             "type": "string"
@@ -578,7 +578,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "scheme": {
                             "type": "string"
@@ -660,7 +660,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "scheme": {
                             "type": "string"
@@ -794,7 +794,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "scheme": {
                             "type": "string"
@@ -931,7 +931,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "scheme": {
                             "type": "string"
@@ -1013,7 +1013,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "scheme": {
                             "type": "string"
@@ -1147,7 +1147,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "scheme": {
                             "type": "string"
@@ -1281,7 +1281,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "scheme": {
                             "type": "string"
@@ -1371,7 +1371,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "required": true,
                         "scheme": {
                             "type": "string"
