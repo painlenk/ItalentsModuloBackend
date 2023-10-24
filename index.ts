@@ -3,6 +3,7 @@ import userRouter from "./src/router/user.router";
 import pizzaRouter from "./src/router/pizza.router";
 import cartRouter from "./src/router/cart.router";
 import orderRouter from "./src/router/order.router";
+import docs from "./src/router/docs.router";
 import cors from "cors";
 import { connectToDatabase } from "./src/database/pizzaDB";
 
@@ -19,6 +20,7 @@ app.use("/user", userRouter);
 app.use("/pizza", pizzaRouter);
 app.use("/cart", cartRouter);
 app.use("/order", orderRouter);
+app.use("/docs", docs);
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
