@@ -72,6 +72,7 @@ export const createUserData = async (req: Request, res: Response) => {
     address,
   };
 
+  //valida se o email ja existe na hora de criar o novo usuário
   const emailAlreadyExists = await getUserEmailDb(email);
   if (emailAlreadyExists) {
     return res.status(404).send("usuário já cadstrado");

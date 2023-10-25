@@ -17,5 +17,5 @@ const CartSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true },
 });
 
-export type Cart = InferSchemaType<typeof CartSchema>;
+export type Cart = InferSchemaType<typeof CartSchema>; //cria um type do cart para ser usado e exporta
 export const cartDb = mongoose.model("cart", CartSchema);

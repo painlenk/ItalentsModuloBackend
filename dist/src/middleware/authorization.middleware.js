@@ -4,6 +4,7 @@ exports.authorization = void 0;
 const validateToken_1 = require("../utils/validateToken");
 const settings_1 = require("../../settings");
 const user_service_1 = require("../services/user.service");
+//middleware responsavel por falidar se o objeto possui token , se o token e valido e se o token possui id de usuário
 const authorization = async (req, res, next) => {
     const { authorization } = req.headers;
     if (!authorization) {

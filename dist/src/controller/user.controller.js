@@ -62,6 +62,7 @@ const createUserData = async (req, res) => {
         isAdmin,
         address,
     };
+    //valida se o email ja existe na hora de criar o novo usuário
     const emailAlreadyExists = await (0, auth_service_1.getUserEmailDb)(email);
     if (emailAlreadyExists) {
         return res.status(404).send("usuário já cadstrado");

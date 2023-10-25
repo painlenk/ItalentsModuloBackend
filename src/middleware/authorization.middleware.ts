@@ -3,6 +3,8 @@ import { validateToken } from "../utils/validateToken";
 import { SECRET } from "../../settings";
 import { getUserDb } from "../services/user.service";
 
+//middleware responsavel por falidar se o objeto possui token , se o token e valido e se o token possui id de usuário
+
 export const authorization = async (
   req: Request,
   res: Response,

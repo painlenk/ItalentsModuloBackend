@@ -33,10 +33,12 @@ const loginUser = async (req, res) => {
 exports.loginUser = loginUser;
 const loginToken = (req, res) => {
     try {
+        //valida se tem o auth passado pelo middleware
         const { authorization } = req.headers;
         if (!authorization) {
             return res.status(401).send({ message: "token não informado" });
         }
+        //valida o token do usuário passando a auth e o token
         const token = (0, validateToken_1.validateToken)(authorization, settings_1.SECRET);
         if (!token) {
             return res.status(401).send({ message: "token invalido" });

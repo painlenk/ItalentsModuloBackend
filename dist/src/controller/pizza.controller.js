@@ -21,7 +21,8 @@ exports.getAllPizzas = getAllPizzas;
 const getPizza = async (req, res) => {
     try {
         const { id } = req.params;
-        if (!id || !mongoose_1.default.Types.ObjectId.isValid(id)) {
+        //valida se o tipo do id NÃO É um mongoose objectid
+        if (!mongoose_1.default.Types.ObjectId.isValid(id)) {
             return res.status(404).send("id invalido");
         }
         const data = await (0, pizza_service_1.getPizzaDb)(id);
@@ -36,6 +37,7 @@ exports.getPizza = getPizza;
 const createPizza = async (req, res) => {
     try {
         const { name, price, size } = req.body;
+        //envia os dados para a factory de pizza
         const dataToCreate = (0, pizzaCreateFactory_1.pizzaCreateFactory)({ name, price, size });
         const data = await (0, pizza_service_1.createPizzaDb)(dataToCreate);
         return res
@@ -72,7 +74,7 @@ exports.updatePizza = updatePizza;
 const deletePizza = async (req, res) => {
     try {
         const { id } = req.params;
-        if (!id || !mongoose_1.default.Types.ObjectId.isValid(id)) {
+        if (!mongoose_1.default.Types.ObjectId.isValid(id)) {
             return res.status(404).send("id invalido");
         }
         const getUserToDelete = await (0, pizza_service_1.getPizzaDb)(id);

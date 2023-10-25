@@ -2,8 +2,8 @@ import swaggerUi from "swagger-ui-express";
 import {} from "../../";
 import express from "express";
 
+//criar o swagger config
 import swaggerConfig from "../../swagger.json";
-//criar o swagger document
 
 const router = express.Router();
 router.use("/api-docs", swaggerUi.serve);

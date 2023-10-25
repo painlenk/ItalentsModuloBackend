@@ -18,6 +18,6 @@ const OrderSchema = new mongoose.Schema({
   closed: { type: Boolean, required: true },
 });
 
-export type Order = InferSchemaType<typeof OrderSchema>;
+export type Order = InferSchemaType<typeof OrderSchema>; //cria um type do order para ser usado e exporta
 
 export const OrderDb = mongoose.model("order", OrderSchema);

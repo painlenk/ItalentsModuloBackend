@@ -1,3 +1,4 @@
+//cria interface para ser utilizada como DTO ou type pra factory
 export interface IUserData {
   name: string;
   cpf: string;
@@ -8,6 +9,7 @@ export interface IUserData {
   createdAt?: Date;
 }
 
+//cria interface e extend de IUserdata adicionando o _Id
 export interface IUserTokenValid extends IUserData {
   _id: string;
 }

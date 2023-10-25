@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { DATABASEURL } from "../../settings";
 
+//conecta com o banco principal da pizzaria
 export function connectToDatabase() {
   mongoose
     .connect(`${DATABASEURL}/pizza`, {})

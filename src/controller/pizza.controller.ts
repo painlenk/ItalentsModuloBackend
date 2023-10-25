@@ -25,7 +25,8 @@ export const getPizza = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
-    if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+    //valida se o tipo do id NÃO É um mongoose objectid
+    if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(404).send("id invalido");
     }
 
@@ -43,6 +44,7 @@ export const createPizza = async (req: Request, res: Response) => {
   try {
     const { name, price, size } = req.body;
 
+    //envia os dados para a factory de pizza
     const dataToCreate = pizzaCreateFactory({ name, price, size });
 
     const data = await createPizzaDb(dataToCreate);
@@ -88,7 +90,7 @@ export const deletePizza = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
-    if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(404).send("id invalido");
     }
 

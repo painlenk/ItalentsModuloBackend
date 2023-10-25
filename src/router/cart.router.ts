@@ -15,6 +15,7 @@ import {
 
 const router = express.Router();
 
+//utiliza a typagem do next com Request e Response para evitar erros
 router.get("/all", authorization, (req: Request, res: Response) =>
   getAllCarts(req, res)
 );

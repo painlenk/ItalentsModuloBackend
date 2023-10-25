@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.connectToDatabase = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const settings_1 = require("../../settings");
+//conecta com o banco principal da pizzaria
 function connectToDatabase() {
     mongoose_1.default
         .connect(`${settings_1.DATABASEURL}/pizza`, {})

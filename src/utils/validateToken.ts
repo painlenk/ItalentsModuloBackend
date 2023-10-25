@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import { IUserTokenValid } from "../types/interfaces/user";
 
+//função responsavel por verificar se o token é valido
 export const validateToken = (authorization: string, SECRET: string) => {
   const parts = authorization.split(" ");
 

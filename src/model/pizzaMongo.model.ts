@@ -9,6 +9,6 @@ export const PizzaSchema = new Schema<IPizzaData>({
   createdAt: { type: Date, required: true, default: Date.now() },
 });
 
-export type Pizza = InferSchemaType<typeof PizzaSchema>;
+export type Pizza = InferSchemaType<typeof PizzaSchema>; //cria um type do pizza para ser usado e exportado
 
 export const PizzaDB = mongoose.model("pizza", PizzaSchema);

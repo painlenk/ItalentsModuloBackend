@@ -8,6 +8,7 @@ const cart_controller_1 = require("../controller/cart.controller");
 const authorization_middleware_1 = require("../middleware/authorization.middleware");
 const validateCart_middleware_1 = require("../middleware/validateCart.middleware");
 const router = express_1.default.Router();
+//utiliza a typagem do next com Request e Response para evitar erros
 router.get("/all", authorization_middleware_1.authorization, (req, res) => (0, cart_controller_1.getAllCarts)(req, res));
 router.get("/:id", validateCart_middleware_1.validateCartId, authorization_middleware_1.authorization, (req, res) => (0, cart_controller_1.getCart)(req, res));
 router.post("/create", validateCart_middleware_1.validateCartCreate, authorization_middleware_1.authorization, (req, res) => {
