@@ -21,7 +21,7 @@ Projeto baseado em um ecommerce de pizzaria, projeto final para o modulo de back
 ## Instalação
 
 
-Projeto requerido  [Node.js](https://nodejs.org/) v16+ .
+Projeto requerido  [Node.js](https://nodejs.org/) v16+
 
 Instalando as dependencias e inicializando o projeto
 
@@ -39,14 +39,14 @@ DATABASEURL = URL do banco(mongo) de dados para conexão
 
 ## Rotas da aplicação
 
-##### para acessar a documentação de  rotas você devera executar o projeto e acessar a rota do swaggerDocument
-.
+##### para acessar a documentação de  rotas você deverá executar o projeto e acessar a rota do swaggerDocument
+
 ```sh
 /docs
 ```
 
 ##### para realizar as chamadas de rotas foi disponibilizado o modelo de request gerado pelo thunderCLient (tambem compativel com insominia e postman) dentro da pasta 
-.
+
 ```sh
 /thunderClient/thunderClient.json
 ```
